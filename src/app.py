@@ -7,6 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def fetch_data():
   # --- Call KaaS REST endpoint ---
+  response.headers.add("Access-Control-Allow-Origin", "*")
   req = requests.get('https://api.kanye.rest/')
   resp = req.content
   return resp
